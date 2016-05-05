@@ -4,6 +4,7 @@
   "description": "A hubot script for posting confluence calendar events automatically to a channel",
   "version": "1.0",
   "homepage": "https://github.com/danbeggan/hubot-confluence-calendar",
+  "main": "./src/hubot-confluence-calendar",
   
   "repository": {
     "type": "git",
