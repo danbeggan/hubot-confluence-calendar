@@ -1,0 +1,22 @@
+{
+  "author": "Daniel Beggan",
+  "name": "hubot-confluence-calendar",
+  "description": "A hubot script for posting confluence calendar events automatically to a channel",
+  "version": "1.0",
+  "homepage": "https://github.com/danbeggan/hubot-confluence-calendar",
+  
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/danbeggan/hubot-confluence-calendar.git"
+  },
+  
+  "dependencies": {
+    "coffee-script": "> 1.1.3",
+    "cron": ">= 1.0.1",
+    "underscore": ">= 1.8.3",
+    "moment-timezone": ">= 0.5.4",
+    "datejs": ">= 1.0.0-rc3",
+    "long-timeout": ">= 0.1.1",
+    "hubot-conversation": ">= 0.1.1"
+  }
+}
