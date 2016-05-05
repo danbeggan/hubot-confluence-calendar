@@ -258,7 +258,7 @@ checkForEvents = (robot, calendarUrl, calendarName, channelToPost, timezone, typ
             enddate = endrecurrance[1]
             timeset = {day:parseInt(enddate.substring(6,8)), month:parseInt(enddate.substring(4,6)), year:parseInt(enddate.substring(0,4))}
             #Check if the end date is in the past or not today
-            if (Date.today().getTime() - Date.today().set(timeset).getTime()) >= 0
+            if (Date.today().getTime() - Date.today().set(timeset).getTime()) > 0
               keepcheck = false
 
           if keepcheck is true
@@ -306,8 +306,8 @@ checkForEvents = (robot, calendarUrl, calendarName, channelToPost, timezone, typ
               attachment = extractEvent(fullEvent, calendarUrl, calendarName, channelToPost, timezone, type)
 
               if type is "timed"
-                #if timed event is less than the time left in the add calculate it for tomorrow
-                if nextstartdate.getTime() - (Date.today().addHours(24)-Date.now()) < 0
+                #if timed event is less than the time left in the day calculate it for tomorrow
+                if nextstartdate.getTime() - Date.today().addHours(24) < 0
                   [timeout, nextstartdate, nextenddate] = getNextRecurring(frequency, interval, startdate.addHours(24), enddate.addHours(24))
                 nextstartdate = nextstartdate.addMinutes(15)
 
