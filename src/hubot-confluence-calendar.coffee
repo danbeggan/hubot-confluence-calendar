@@ -307,7 +307,7 @@ checkForEvents = (robot, calendarUrl, calendarName, channelToPost, timezone, typ
 
               if type is "timed"
                 #if timed event is less than the time left in the day calculate it for tomorrow
-                if nextstartdate.getTime() - Date.today().addHours(24) < 0
+                if startdate.getTime() - Date.today() > 0
                   [timeout, nextstartdate, nextenddate] = getNextRecurring(frequency, interval, startdate.addHours(24), enddate.addHours(24))
                 nextstartdate = nextstartdate.addMinutes(15)
 
