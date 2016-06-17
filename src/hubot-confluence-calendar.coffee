@@ -42,7 +42,7 @@ module.exports = (robot) ->
     calendarsForRoom = getCalendarsForRoom(robot, res.message.room)
     calsWithSameName = _.where calendarsForRoom, name: calendarName
     if calsWithSameName.length isnt 0
-      res.reply("Calendar already exhists with the name \'#{calendarName}\' in this channel, please try again with a different name")
+      res.reply("Calendar already exists with the name \'#{calendarName}\' in this channel, please try again with a different name")
       return
 
     res.reply('Please follow these steps to get the calendar\n  - Click the related actions on the calendar you wish to use\n  - Choose subscribe and copy the url to the .ics file confluence gives you')
@@ -333,7 +333,7 @@ checkForEvents = (robot, calendarUrl, calendarName, channelToPost, timezone, typ
               robot.brain.set 'calendars', calendars
 
               if type is "day"
-                timeout+=cal[0].offset
+                timeout+=cal[0].offset + (moment.tz.zone(timezone).offset(moment.utc())*60000)
 
               delay fireRecurringEvent, timeout, robot, channelToPost, calendarName, uid, attachment
 
